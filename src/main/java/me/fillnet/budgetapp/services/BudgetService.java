@@ -2,6 +2,11 @@ package me.fillnet.budgetapp.services;
 
 import me.fillnet.budgetapp.model.Transaction;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Path;
+import java.time.Month;
+
 public interface BudgetService {
     int getDailyBudget();
 
@@ -20,6 +25,10 @@ public interface BudgetService {
     int getDailyBalance();
 
     int getAllSpend();
+
+    Path createMonthlyReport(Month month) throws IOException;
+
+    void addTransactionsFromInputStream(InputStream inputStream) throws IOException;
 
     int getVacationBonus(int daysCount);
 
